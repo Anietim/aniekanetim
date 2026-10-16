@@ -1,5 +1,5 @@
 /**
- * Aniekan Etim Portfolio Backend - Production Server Core
+ * Aniekan Etim Portfolio Backend - Production Server Core (Fixed Route Ordering)
  * Features: Native HTTP Basic Authentication Gatekeeper & Live CRUD API Engine
  */
 
@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 8080; // Defaulting straight to port 8080 to avoid conflicts
+const PORT = process.env.PORT || 8090; // Locks into port 8090 to bypass port 3000 conflicts
 const DATABASE_PATH = path.join(__dirname, 'data', 'database.json');
 
 // Global stream handling parser configurations
@@ -16,48 +16,47 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /**
- * 1. Absolute Server-Level Authentication Gatekeeper
- * Intercepts requests for the admin panel and blocks unauthorized payload delivery.
+ * 1. STATIC ASSET LAYER (MOVED UP)
+ * Serves index.html, style.css, and client scripts to your browser instantly.
+ */
+app.use(express.static(__dirname));
+
+/**
+ * 2. Absolute Server-Level Authentication Gatekeeper
+ * Intercepts requests for the admin panel and blocks unauthorized traffic.
  */
 function adminSecurityGate(req, res, next) {
     const secureKey = process.env.PORTFOLIO_ADMIN_KEY || "MyPortfolioSecret2026";
-    
-    // Pull the standard authorization header node from the request stream
     const authHeader = req.headers.authorization;
 
     if (!authHeader) {
-        // Force the browser to trigger its native login prompt interface
         res.setHeader('WWW-Authenticate', 'Basic realm="Secure Admin Area"');
         return res.status(401).send('Authentication Required: Access Denied.');
     }
 
-    // Decode the standard base64 basic auth string token natively
-    const authTokens = Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
-    const username = authTokens[0];
-    const password = authTokens[1];
+    const authTokens = Buffer.from(authHeader.split(' '), 'base64').toString().split(':');
+    const password = authTokens[1]; // Correct array index offset mapping for password validation
 
-    // Username can be anything (e.g. 'admin'), but password must match your terminal key exactly
     if (password === secureKey) {
-        return next(); // Key matches, unlock the route pipeline execution
+        return next(); // Key matches, open the gate
     }
 
-    // Key mismatch protection bounce
     res.setHeader('WWW-Authenticate', 'Basic realm="Secure Admin Area"');
     return res.status(401).send('Authentication Failed: Invalid credentials.');
 }
 
 /**
- * 2. Protected Routes — User cannot reach these paths without passing the gatekeeper
+ * 3. Protected Routes — Authenticated administrators only
  */
-app.get('/admin.html', adminSecurityGate, (req, res) => {
-    res.sendFile(path.join(__dirname, 'admin.html'));
-});
-
 app.get('/admin', adminSecurityGate, (req, res) => {
     res.sendFile(path.join(__dirname, 'admin.html'));
 });
 
-// Protect the API database write action route as well
+app.get('/admin.html', adminSecurityGate, (req, res) => {
+    res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
+// Protect the API database write action route
 app.post('/api/projects', adminSecurityGate, (req, res) => {
     const { title, role, description, liveUrl, tags } = req.body;
 
@@ -91,7 +90,7 @@ app.post('/api/projects', adminSecurityGate, (req, res) => {
 });
 
 /**
- * 3. Public Routes — Available to anyone viewing your portfolio homepage
+ * 4. Public API Routes — Available to your homepage grid renderer
  */
 app.get('/api/projects', (req, res) => {
     fs.readFile(DATABASE_PATH, 'utf8', (err, data) => {
@@ -100,13 +99,16 @@ app.get('/api/projects', (req, res) => {
     });
 });
 
-// Serve everything else (like index.html, style.css, app.js) publicly
-app.use(express.static(__dirname));
+// Explicit base route fallback target to ensure index.html renders cleanly
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
-// Fire the listener thread loops
+// Start your listener thread loop
 app.listen(PORT, () => {
     console.log(`\n======================================================`);
     console.log(`🚀 ANIEKAN.PORTFOLIO FULL-STACK ENGINE LIVE ONLINE`);
-    console.log(`🌐 Secure Workspace Route: http://localhost:${PORT}/admin`);
+    console.log(`🌐 Portfolio Homepage: http://localhost:${PORT}`);
+    console.log(`🔒 Secure Dashboard Area: http://localhost:${PORT}/admin`);
     console.log(`======================================================\n`);
 });
