@@ -1,5 +1,5 @@
 /**
- * Aniekan Etim Portfolio Backend - Production Server Core (Fixed Route Ordering)
+ * Aniekan Etim Portfolio Backend - Production Server Core
  * Features: Native HTTP Basic Authentication Gatekeeper & Live CRUD API Engine
  */
 
@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 8090; // Locks into port 8090 to bypass port 3000 conflicts
+const PORT = process.env.PORT || 8090; // Defaulting to port 8090 to bypass port 3000 conflicts
 const DATABASE_PATH = path.join(__dirname, 'data', 'database.json');
 
 // Global stream handling parser configurations
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /**
- * 1. STATIC ASSET LAYER (MOVED UP)
+ * 1. STATIC ASSET LAYER 
  * Serves index.html, style.css, and client scripts to your browser instantly.
  */
 app.use(express.static(__dirname));
@@ -27,32 +27,38 @@ app.use(express.static(__dirname));
  */
 function adminSecurityGate(req, res, next) {
     const secureKey = process.env.PORTFOLIO_ADMIN_KEY || "MyPortfolioSecret2026";
+    
+    // Pull the standard authorization header node from the request stream
     const authHeader = req.headers.authorization;
 
     if (!authHeader) {
+        // Force the browser to trigger its native login prompt interface
         res.setHeader('WWW-Authenticate', 'Basic realm="Secure Admin Area"');
         return res.status(401).send('Authentication Required: Access Denied.');
     }
 
-    const authTokens = Buffer.from(authHeader.split(' '), 'base64').toString().split(':');
-    const password = authTokens[1]; // Correct array index offset mapping for password validation
+    // Decode the standard base64 basic auth string token natively
+    const authTokens = Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
+    const password = authTokens[1];
 
+    // Username can be anything, but password must match your terminal key exactly
     if (password === secureKey) {
-        return next(); // Key matches, open the gate
+        return next(); // Key matches, unlock the route pipeline execution
     }
 
+    // Key mismatch protection bounce
     res.setHeader('WWW-Authenticate', 'Basic realm="Secure Admin Area"');
     return res.status(401).send('Authentication Failed: Invalid credentials.');
 }
 
 /**
- * 3. Protected Routes — Authenticated administrators only
+ * 3. Protected Routes — User cannot reach these paths without passing the gatekeeper
  */
-app.get('/admin', adminSecurityGate, (req, res) => {
+app.get('/admin.html', adminSecurityGate, (req, res) => {
     res.sendFile(path.join(__dirname, 'admin.html'));
 });
 
-app.get('/admin.html', adminSecurityGate, (req, res) => {
+app.get('/admin', adminSecurityGate, (req, res) => {
     res.sendFile(path.join(__dirname, 'admin.html'));
 });
 
@@ -104,7 +110,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Start your listener thread loop
+// Fire the listener thread loops
 app.listen(PORT, () => {
     console.log(`\n======================================================`);
     console.log(`🚀 ANIEKAN.PORTFOLIO FULL-STACK ENGINE LIVE ONLINE`);

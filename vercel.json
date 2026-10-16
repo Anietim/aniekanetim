@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/api/projects", "destination": "/data/database.json" },
     { "source": "/(.*)", "destination": "/index.html" }
