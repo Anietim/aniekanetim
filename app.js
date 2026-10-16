@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 projectCard.className = 'project-card';
                 
                 // Construct comma-separated visual design framework tags
-                const tagsHTML = project.tags
+                const tagsHTML = (project.tags || [])
                     .map(tag => `<span class="project-tag">${tag}</span>`)
                     .join('');
                 
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mouseVector.y = event.clientY - rect.top;
     });
 
-    window.addEventListener('mouseleave', () => {
+    document.documentElement.addEventListener('mouseleave', () => {
         mouseVector.x = null;
         mouseVector.y = null;
     });
@@ -196,4 +196,3 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvasMatrix();
     requestAnimationFrame(runtimeFrameTick);
 })();
-
