@@ -1,0 +1,56 @@
+[
+  {
+    "id": "grench-legal",
+    "title": "Grench Legal Platform",
+    "role": "Web Developer & Frontend Engineer",
+    "description": "Engineered a high-conversion digital web platform optimized for fast client intake. Integrated custom UI components, responsive typography systems, and optimized semantic layouts ensuring multi-device accessibility and high performance.",
+    "liveUrl": "https://grenchlegal.onrender.com",
+    "tags": ["HTML5", "CSS3", "JavaScript", "Responsive Design", "Web Optimization"],
+    "featured": true
+  },
+  {
+    "id": "stovest",
+    "title": "Stovest Web Application",
+    "role": "Frontend & Logic Engineer",
+    "description": "Developed the primary digital storefront user interface for a modern financial-focused asset platform. Structured clean UI workflows, dynamic components, and micro-interactions optimized for fast rendering speeds.",
+    "liveUrl": "https://stovest.vercel.app",
+    "tags": ["Frontend Engineering", "UI Components", "Vercel Deployment", "Modern UI"],
+    "featured": true
+  },
+  {
+    "id": "mary-portfolio",
+    "title": "Mary Ogabo Corporate Space",
+    "role": "Web Developer / Frontend Specialist",
+    "description": "Constructed a performance-driven architectural web platform built for high-fidelity performance. Focused on custom typography layout tokens, asset caching, and clean, seamless semantic grid systems.",
+    "liveUrl": "https://maryogabo.vercel.app/",
+    "tags": ["Vercel Engine", "Semantic HTML", "CSS Architectures", "Performance Scaling"],
+    "featured": true
+  },
+  {
+    "id": "kasaja",
+    "title": "Kasaja Marketplace Platform",
+    "role": "Full-Stack Web Developer",
+    "description": "THIS PROJECT IS STILL UNDER BUILDING> I CAN SHARE SCREENSHS ON REQUEST.",
+    "liveUrl": "https://netlify.app",
+    "tags": ["Netlify Engine", "Modern Workflows", "API Integrations", "Component Engineering"],
+    "featured": true
+  },
+  {
+    "id": "believers-fund",
+    "title": "Ton Believers Fund Enterprise Concept",
+    "role": "Framer Spezialist & No-Code Developer",
+    "description": "Designed and deployed a highly fluid, premium layout architecture focused on web interactions. Implemented complex canvas logic, dynamic layout breaks, and custom interaction nodes for digital web scale.",
+    "liveUrl": "https://tonbelieversfund.framer.website/",
+    "tags": ["Framer Canvas", "Motion Design", "Visual Prototyping", "No-Code Architecture"],
+    "featured": false
+  },
+  {
+    "id": "haopupton",
+    "title": "Haopupton Web Concept Interface",
+    "role": "Framer Spezialist & Web Designer",
+    "description": "Architected a premium high-fidelity web concept optimized for deep interactive experiences. Structured complex container transitions, keyframe animation hooks, and crisp layout tokens.",
+    "liveUrl": "https://haopupton.framer.website/",
+    "tags": ["Framer Design", "Interaction Engineering", "Digital Asset Design", "UX Systems"],
+    "featured": false
+  }
+]

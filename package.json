@@ -1,0 +1,23 @@
+{
+  "name": "flowcraft-dark-motion-portfolio",
+  "version": "1.0.0",
+  "description": "Ultra-premium dark motion portfolio and white-label agency site with built-in admin panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "webflow",
+    "dark-mode",
+    "gsap",
+    "agency",
+    "admin-panel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
