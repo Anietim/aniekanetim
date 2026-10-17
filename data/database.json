@@ -52,5 +52,21 @@
     "liveUrl": "https://haopupton.framer.website/",
     "tags": ["Framer Design", "Interaction Engineering", "Digital Asset Design", "UX Systems"],
     "featured": false
+  },
+  {
+    "id": "cloud-task-manager",
+    "role": "Full Stack",
+    "title": "Cloud Task Manager",
+    "description": "A modern one-page collaborative task manager built with React and Node.js (Express): persistent file storage, dynamic progress tracking, real-time filters and priority levels. Built and shipped from Google Cloud Shell.",
+    "tags": ["React", "Node.js", "Express", "Google Cloud Shell"],
+    "liveUrl": "https://cloudtaskmanager.vercel.app/"
+  },
+  {
+    "role": "Game Development",
+    "title": "9ja Dream (In Development)",
+    "description": "A browser-based nation-building game where players belong to one of Nigeria's 36 states plus the FCT, develop local government areas, build companies and grow their state's economy.",
+    "tags": ["JavaScript", "3D Map", "Game Design", "In Development"],
+    "liveUrl": "#"
   }
 ]
+
