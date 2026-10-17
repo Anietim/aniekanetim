@@ -1246,3 +1246,43 @@ text-align: center;
 .hire-panel .form-status.ok{color:#34d399}.hire-panel .form-status.err{color:#fca5a5}
 @media (max-width:900px){.hire-panel{grid-template-columns:1fr;border-radius:22px}}
 @media (max-width:560px){.row2{grid-template-columns:1fr}.hire-panel{padding:1rem}.ch{padding:.75rem .8rem;gap:.7rem}.ch-ic{width:40px;height:40px}}
+
+/* ===== v12: designer logo, hamburger menu, calmer mobile hero ===== */
+.logo-text{font-family:'Syne',var(--font-heading);font-weight:800;font-size:1.45rem;letter-spacing:-.02em;background:linear-gradient(90deg,#fff 0%,#c7d2fe 60%,#a78bfa 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo-text span{font-weight:700;color:transparent;background:linear-gradient(90deg,#a78bfa,#60a5fa);-webkit-background-clip:text;background-clip:text}
+.nav-toggle{display:none}
+body.no-scroll{overflow:hidden}
+@media (max-width:900px){
+  .nav-container{justify-content:space-between;padding-left:1.1rem;padding-right:1.1rem}
+  .nav-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);cursor:pointer;padding:0 12px;z-index:120}
+  .nav-toggle span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;transition:transform .3s ease,opacity .2s ease}
+  .menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-open .nav-toggle span:nth-child(2){opacity:0}
+  .menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .main-header .nav-links{display:flex!important;position:fixed;top:0;right:0;bottom:0;width:min(82vw,340px);flex-direction:column;align-items:stretch;justify-content:flex-start;gap:.3rem;padding:5.5rem 1.4rem 2rem;background:linear-gradient(180deg,#14103a,#0a0a14);border-left:1px solid rgba(165,180,252,.25);box-shadow:-20px 0 60px rgba(0,0,0,.6);transform:translateX(105%);transition:transform .35s cubic-bezier(.16,1,.3,1);z-index:110;overflow-y:auto}
+  .menu-open .nav-links{transform:none}
+  .main-header .nav-links a:not(.btn-cta){display:block;padding:.95rem 1rem;border-radius:12px;font-size:1.2rem;font-weight:700;color:#e5e7f5}
+  .main-header .nav-links a:not(.btn-cta):hover{background:rgba(255,255,255,.08)}
+  .main-header .nav-links .nav-cv{border:1px solid rgba(165,180,252,.5);text-align:center;margin-top:.6rem}
+  .main-header .nav-links .btn-cta{margin-top:.8rem;text-align:center;padding:1rem;font-size:1.05rem}
+  .menu-open::after{content:"";position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100}
+}
+/* calmer, cleaner phone hero */
+@media (max-width:640px){
+  .hero-section{min-height:auto;padding-top:5.5rem}
+  .hero-layout{display:flex;flex-direction:column-reverse}
+  .hero-photo{position:relative;top:auto;right:auto;bottom:auto;width:100%;height:auto;max-width:none;display:flex;justify-content:center;padding:0;margin:0 0 -3.5rem}
+  .hero-photo img{width:78%;height:auto;max-height:none;opacity:.9;margin:0;object-fit:contain;
+    -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 55%,transparent 100%)}
+  .hero-layout .hero-wrapper{padding:0 0 3rem;position:relative}
+  .role-badge{font-size:.72rem;padding:.55rem .9rem;margin:0 auto 1.2rem;max-width:100%;width:fit-content}
+  .hero-headline{font-size:clamp(2.4rem,11.5vw,3.3rem);margin-bottom:1.2rem}
+  .marquee-wrapper,.hero-marquee,[class*="marquee"]{display:none!important}
+  .hero-subtext{font-size:1.02rem;font-weight:600;line-height:1.55;margin-bottom:1.6rem;color:#c3c8e0}
+  .hero-actions{gap:.8rem}
+  .hero-actions .btn-secondary-premium[href="#hire"]{display:none}
+}
+@media (max-width:900px){
+  .main-header,.main-header.menu-open{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(14,12,48,.96)}
+  .main-header{z-index:200}
+}
