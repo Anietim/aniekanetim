@@ -67,6 +67,34 @@
     "description": "A browser-based nation-building game where players belong to one of Nigeria's 36 states plus the FCT, develop local government areas, build companies and grow their state's economy.",
     "tags": ["JavaScript", "3D Map", "Game Design", "In Development"],
     "liveUrl": "#"
+  },
+  {
+    "role": "Web3 / Full Stack",
+    "title": "KASAJA: Naira-first marketplace with on-chain delivery receipts",
+    "description": "Social marketplace for Nigeria connecting buyers, sellers and delivery riders. Naira payments via Paystack, real-time chat, and a Solidity contract on Arc mainnet that records every confirmed delivery as a public receipt. Working prototype in testing.",
+    "tags": ["React", "Supabase", "Paystack", "Solidity", "Arc"],
+    "liveUrl": "https://kasajaa.netlify.app"
+  },
+  {
+    "role": "Web3",
+    "title": "Arc Alpha Lab",
+    "description": "A platform for getting featured Arc tokens directly from the Arc chain.",
+    "tags": ["Arc", "Web3", "React"],
+    "liveUrl": "#"
+  },
+  {
+    "role": "Full Stack",
+    "title": "Cloud Task Manager",
+    "description": "A modern one-page collaborative task manager built with React and Node.js (Express): persistent file storage, dynamic progress tracking, real-time filters and priority levels. Built and shipped from Google Cloud Shell.",
+    "tags": ["React", "Node.js", "Express", "Google Cloud Shell"],
+    "liveUrl": "https://cloudtaskmanager.vercel.app/"
+  },
+  {
+    "role": "Game Development",
+    "title": "9ja Dream (In Development)",
+    "description": "A browser-based nation-building game where players belong to one of Nigeria's 36 states plus the FCT, develop local government areas, build companies and grow their state's economy.",
+    "tags": ["JavaScript", "3D Map", "Game Design", "In Development"],
+    "liveUrl": "#"
   }
 ]
 
