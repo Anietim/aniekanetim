@@ -744,7 +744,7 @@ body::before {
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 500;
     transition: var(--transition-smooth);
 }
 
@@ -754,7 +754,7 @@ body::before {
 
 .copyright-notice {
     color: var(--text-muted);
-    font-size: 1.55rem;
+    font-size: 0.85rem;
 }
 
 /* System Engine Feedback States */
@@ -1189,3 +1189,17 @@ text-align: center;
 .faq-list details,.hire-form,.timeline li{backdrop-filter:blur(6px)}
 .faq-list details,.hire-form{background:rgba(18,18,30,.72);border-color:rgba(165,180,252,.18)}
 .contact-left h2,.contact-meta a{text-shadow:0 2px 20px rgba(0,0,0,.4)}
+
+/* ===== v10: certifications, larger footer-right text ===== */
+.certs{margin-top:2.5rem}
+.certs-title{font:800 1.6rem var(--font-heading);color:#fff;margin-bottom:1rem}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1rem}
+.cert{position:relative;display:flex;flex-direction:column;gap:.35rem;padding:1.1rem 1.2rem 1.1rem 1.4rem;border-radius:12px;background:rgba(18,18,30,.75);border:1px solid rgba(165,180,252,.45);box-shadow:0 0 0 1px rgba(99,102,241,.15),0 10px 30px rgba(0,0,0,.3)}
+.cert::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:4px;border-radius:4px;background:var(--accent-gradient)}
+.cert b{color:#fff;font:800 1.15rem var(--font-heading)}
+.cert span{color:#d5d8ea;font-weight:600}
+.cert i{font-style:normal;color:#a5b4fc;font-weight:700;letter-spacing:.06em}
+.social-anchor{font-size:1.2rem;font-weight:700;color:#e5e7f5}
+.copyright-notice{font-size:1rem;color:#aab0c6;font-weight:500}
+.social-links-container{gap:1.8rem;flex-wrap:wrap;justify-content:flex-end}
+@media (max-width:767px){.social-links-container{justify-content:flex-start}.social-anchor{font-size:1.1rem}}
