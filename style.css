@@ -1024,3 +1024,33 @@ text-align: center;
   -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 40%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 40%,transparent 100%)}}
 @media (max-width:640px){.hero-photo img{object-fit:contain;object-position:right top;height:auto;max-height:100%}}
 @media (max-width:640px){.hero-photo{top:5.5rem;height:60%}.hero-photo img{width:80%;margin-left:auto}}
+
+/* ===== v4: mobile spacing + bolder, brighter text from "What I Can Do" down ===== */
+.expertise-showcase-card h3,.project-card h3,.skill-card h3{font-weight:800;color:#fff}
+.section-title{font-weight:800;color:#fff}
+.expertise-showcase-card p,.project-card p,.skill-card p,.section-subtitle,.contact-left p{color:#d5d8ea;font-weight:500}
+@media (max-width:640px){
+  .section-container{padding:3.5rem .85rem}
+  .section-header{margin-bottom:2rem}
+  .section-title{font-size:2.1rem}
+  .expertise-showcase-grid{gap:1.25rem;margin-top:1.5rem}
+  .expertise-showcase-card{padding:1.1rem;border-radius:14px}
+  .expertise-showcase-card h3{font-size:1.45rem}
+  .expertise-showcase-card p,.project-card p,.skill-card p{font-size:1rem}
+  .card-mockup-display-box{max-width:100%}
+  .projects-grid{gap:1.25rem}
+  .project-card{padding:1.4rem}
+  .skills-grid{gap:1.5rem;grid-template-columns:1fr}
+  .skill-card{padding-left:1rem}
+  .contact-section .section-container{padding:3.5rem .85rem}
+  .footer-wrapper{gap:2.5rem}
+  .contact-left h2{font-weight:800;color:#fff}
+}
+
+/* ===== v5: use more of the laptop/desktop width ===== */
+@media (min-width:641px){
+  .section-container{max-width:1680px;padding:6rem clamp(1.5rem,4vw,4.5rem)}
+  .section-header{max-width:760px}
+  .contact-section .section-container{max-width:1680px}
+  .card-mockup-display-box{max-width:520px}
+}
